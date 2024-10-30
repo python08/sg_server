@@ -6,6 +6,8 @@ export interface UserInput {
   name: string;
   password: string;
   role: string;
+  passwordResetToken: string | null;
+  passwordResetExpires: Date | null;
 }
 
 export interface UserDocument extends UserInput, mongoose.Document {
@@ -20,6 +22,8 @@ const userSchema = new mongoose.Schema(
     name: { type: String, required: true },
     password: { type: String, required: true },
     role: { type: String, required: true },
+    passwordResetToken: { type: String, default: null},
+    passwordResetExpires: { type: Date, default: null }
   },
   {
     timestamps: true,
@@ -31,7 +35,7 @@ userSchema.pre("save", async function (next) {
 
   if (!user.isModified("password")) {
     return next();
-  }
+  }                                                                                   
 
   const saltWorkFactor = parseInt(process.env.SALT_WORK_FACTOR) ;
 
@@ -45,7 +49,7 @@ userSchema.pre("save", async function (next) {
 });
 
 userSchema.methods.comparePassword = async function (
-  candidatePassword: string
+  candidatePassword: string 
 ): Promise<boolean> {
   const user = this as UserDocument;
 

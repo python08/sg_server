@@ -1,4 +1,4 @@
-import { TypeOf, object, string } from "zod";
+import { TypeOf, date, object, string } from "zod";
 
 export const createUserScehma = object({
   body: object({
@@ -14,6 +14,8 @@ export const createUserScehma = object({
     email: string({
       required_error: "Email is required",
     }).email("Please enter valid email"),
+    passwordResetToken: string().nullable(),
+    passwordResetExpires: date().nullable(),
   }).refine((data) => data.password === data.passwordConfirmation, {
     message: "Password did not match",
     path: ["passwordConfirmation"],
@@ -21,3 +23,15 @@ export const createUserScehma = object({
 });
 
 export type CreateUserInput = TypeOf<typeof createUserScehma>;
+
+export const params = {
+  params: object({
+    token: string({ required_error: "Token required" }),
+  }),
+};
+
+export const userResetTokenSchema = object({
+  ...params,
+});
+
+export type UserResetTokenSchema = TypeOf<typeof userResetTokenSchema>;
