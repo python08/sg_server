@@ -25,6 +25,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to EC2
+        environment: .env.production
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           HOST: ${{ secrets.EC2_HOST }}
@@ -47,6 +48,11 @@ jobs:
           DOMAIN: ${{ secrets.DOMAIN }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+          SECRETS_WORKING: ${{ secrets.SECRETS_WORKING }}
+
+        steps:
+          - name: Check SECRETS_WORKING
+            run: echo "app fetching variables $SECRETS_WORKING"
         run: |
           ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST << EOF
             cd /home/ubuntu/server
