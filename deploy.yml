@@ -1,0 +1,81 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.14.0' # Specify your node version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the application
+        run: npm run build
+
+      - name: Deploy to EC2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          HOST: ${{ secrets.EC2_HOST }}
+          USER: ${{ secrets.EC2_USER }}
+          NODE_ENV: ${{ secrets.NODE_ENV }}
+          S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+          BUCKET_REGION: ${{ secrets.BUCKET_REGION }}
+          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+          SES_ACCESS_KEY: ${{ secrets.SES_ACCESS_KEY }}
+          SES_SECRET_ACCESS_KEY: ${{ secrets.SES_SECRET_ACCESS_KEY }}
+          SES_EMAIL_SOURCE: ${{ secrets.SES_EMAIL_SOURCE }}
+          PORT: ${{ secrets.PORT }}
+          DB_URI: ${{ secrets.DB_URI }}
+          SALT_WORK_FACTOR: ${{ secrets.SALT_WORK_FACTOR }}
+          ACCESS_TOKEN_TTL: ${{ secrets.ACCESS_TOKEN_TTL }}
+          REFRESH_TOKEN_TTL: ${{ secrets.REFRESH_TOKEN_TTL }}
+          ORIGIN: ${{ secrets.ORIGIN }}
+          S3_BUCKET_URL: ${{ secrets.S3_BUCKET_URL }}
+          DOMAIN: ${{ secrets.DOMAIN }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+        run: |
+          ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST << 'EOF'
+            cd /home/ubuntu/server
+            git pull origin main
+    
+        # Create or overwrite environment variables in the app.env file
+            echo "SSH_PRIVATE_KEY=$SSH_PRIVATE_KEY" > app.env
+            echo "HOST=$HOST" >> app.env
+            echo "USER=$USER" >> app.env
+            echo "NODE_ENV=$NODE_ENV" >> app.env
+            echo "S3_BUCKET_NAME=$S3_BUCKET_NAME" >> app.env
+            echo "BUCKET_REGION=$BUCKET_REGION" >> app.env
+            echo "ACCESS_KEY=$ACCESS_KEY" >> app.env
+            echo "SECRET_ACCESS_KEY=$SECRET_ACCESS_KEY" >> app.env
+            echo "SES_ACCESS_KEY=$SES_ACCESS_KEY" >> app.env
+            echo "SES_SECRET_ACCESS_KEY=$SES_SECRET_ACCESS_KEY" >> app.env
+            echo "SES_EMAIL_SOURCE=$SES_EMAIL_SOURCE" >> app.env
+            echo "PORT=$PORT" >> app.env
+            echo "DB_URI=$DB_URI" >> app.env
+            echo "SALT_WORK_FACTOR=$SALT_WORK_FACTOR" >> app.env
+            echo "ACCESS_TOKEN_TTL=$ACCESS_TOKEN_TTL" >> app.env
+            echo "REFRESH_TOKEN_TTL=$REFRESH_TOKEN_TTL" >> app.env
+            echo "ORIGIN=$ORIGIN" >> app.env
+            echo "S3_BUCKET_URL=$S3_BUCKET_URL" >> app.env
+            echo "DOMAIN=$DOMAIN" >> app.env
+            echo "PRIVATE_KEY=$PRIVATE_KEY" >> app.env
+            echo "PUBLIC_KEY=$PUBLIC_KEY" >> app.env 
+
+            npm install
+            npm run build
+            sudo systemctl restart myapp.service
+          EOF
