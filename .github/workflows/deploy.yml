@@ -52,7 +52,6 @@ jobs:
             cd /home/ubuntu/server
             git pull origin main
     
-        # Create or overwrite environment variables in the app.env file
             echo "SSH_PRIVATE_KEY=$SSH_PRIVATE_KEY" > app.env
             echo "HOST=$HOST" >> app.env
             echo "USER=$USER" >> app.env
