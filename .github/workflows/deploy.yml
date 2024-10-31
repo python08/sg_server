@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: .env.production
 
     steps:
       - name: Checkout code
@@ -25,7 +26,6 @@ jobs:
         run: npm run build
 
       - name: Deploy to EC2
-        environment: .env.production
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           HOST: ${{ secrets.EC2_HOST }}
