@@ -51,7 +51,7 @@ jobs:
           SECRETS_WORKING: ${{ secrets.SECRETS_WORKING }}
 
         run: |
-          ssh -o StrictHostKeyChecking=no -i ssh-aws-server-key.pem $USER@$HOST << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh-aws-server-key.pem $USER@$HOST << 'EOF'
             cd /home/ubuntu/server
             git pull origin main
     
