@@ -48,7 +48,7 @@ jobs:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
         run: |
-          ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i $SSH_PRIVATE_KEY $USER@$HOST << EOF
             cd /home/ubuntu/server
             git pull origin main
     
