@@ -53,7 +53,7 @@ jobs:
         run: |
           echo "SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}" > private_key.pem
           chmod 400 private_key.pem
-          echo "USER is set to $USER."
+          echo "SSH_PRIVATE_KEY is set to $SSH_PRIVATE_KEY."
 
           ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST << 'EOF'
             cd /home/ubuntu/server
