@@ -61,6 +61,7 @@ jobs:
             echo "USERS=$USER" > temp.txt
             echo "HOSTS=$HOST" >> temp.txt
             echo "HOSTS=$HOST" > temp_e.txt
+            echo "SALT_WORK_FACTOR=$SALT_WORK_FACTOR" > temp_e.txt
 
             cd /home/ubuntu/sg_server
             git pull origin main
