@@ -59,7 +59,8 @@ jobs:
 
             cd /home/ubuntu
             echo "USER=${USER}" > temp.txt
-            
+            echo "HOST=${HOST}" >> temp.txt
+
             cd /home/ubuntu/sg_server
             git pull origin main
     
