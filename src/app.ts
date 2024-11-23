@@ -23,6 +23,7 @@ app.use(cookieParser());
 // for body parser
 app.use(express.json());
 
+console.log("origin: ",  process.env.ORIGIN.split(", "))
 app.use(
   cors({
     origin: process.env.ORIGIN.split(", "),
