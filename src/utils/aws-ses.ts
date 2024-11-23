@@ -6,7 +6,6 @@ export const sendEmail = async (
   subject: string,
   body: any
 ) => {
-  console.log("email source: ", process.env.SES_EMAIL_SOURCE)
   const params = {
     Destination: { ToAddresses: [toEmail] },
     Message: {

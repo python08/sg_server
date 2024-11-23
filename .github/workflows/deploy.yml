@@ -25,6 +25,9 @@ jobs:
       - name: Build the application
         run: npm run build
 
+      - name: Debug SES key
+        run: "echo ses email source is ${{ secrets.SES_EMAIL_SOURCE }}"
+
       - name: Deploy to EC2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
