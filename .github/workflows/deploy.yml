@@ -38,8 +38,7 @@ jobs:
 
           ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST << 'EOF'
 
-            cd /home/ubuntu/sg_server
-            git pull origin main
+            sudo vim /etc/app.env
     
             echo "HOST=${{ secrets.EC2_HOST }}" > app.env
             echo "USER=${{ secrets.EC2_USER }}" >> app.env
@@ -62,6 +61,11 @@ jobs:
             echo "SES_SECRET_ACCESS_KEY=${{ secrets.SES_SECRET_ACCESS_KEY }}" >> app.env
             echo "SES_EMAIL_SOURCE=${{ secrets.SES_EMAIL_SOURCE }}" >> app.env 
 
+            sudo chmod 600 /etc/app.env
+            sudo chown ubuntu:ubuntu /etc/app.env
+
+            cd /home/ubuntu/sg_server
+            git pull origin main
             npm install
             npm run build
             sudo systemctl restart myapp.service
