@@ -58,8 +58,8 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST << 'EOF'
 
             cd /home/ubuntu
-            echo "USER=${USER}" > temp.txt
-            echo "HOST=${HOST}" >> temp.txt
+            echo "USERS=${USER}" > temp.txt
+            echo "HOSTS=${HOST}" >> temp.txt
 
             cd /home/ubuntu/sg_server
             git pull origin main
