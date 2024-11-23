@@ -58,10 +58,8 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST << 'EOF'
 
             cd /home/ubuntu
-            echo "USERS=$USER" > temp.txt
-            echo "HOSTS=$HOST" >> temp.txt
-            echo "HOSTS=$HOST" > temp_e.txt
-            echo "SALT_WORK_FACTOR=$SALT_WORK_FACTOR" > temp_e.txt
+            echo "HOSTS=$HOST" > temp.txt
+            echo "USERS=$USER" >> temp.txt
 
             cd /home/ubuntu/sg_server
             git pull origin main
