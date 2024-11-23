@@ -38,9 +38,6 @@ jobs:
           BUCKET_REGION: ${{ secrets.BUCKET_REGION }}
           ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
           SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
-          SES_ACCESS_KEY: ${{ secrets.SES_ACCESS_KEY }}
-          SES_SECRET_ACCESS_KEY: ${{ secrets.SES_SECRET_ACCESS_KEY }}
-          SES_EMAIL_SOURCE: ${{ secrets.SES_EMAIL_SOURCE }}
           PORT: ${{ secrets.PORT }}
           DB_URI: ${{ secrets.DB_URI }}
           SALT_WORK_FACTOR: ${{ secrets.SALT_WORK_FACTOR }}
@@ -51,6 +48,9 @@ jobs:
           DOMAIN: ${{ secrets.DOMAIN }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+          SES_ACCESS_KEY: ${{ secrets.SES_ACCESS_KEY }}
+          SES_SECRET_ACCESS_KEY: ${{ secrets.SES_SECRET_ACCESS_KEY }}
+          SES_EMAIL_SOURCE: ${{ secrets.SES_EMAIL_SOURCE }}
           SECRETS_WORKING: ${{ secrets.SECRETS_WORKING }}
 
         run: |
@@ -70,9 +70,6 @@ jobs:
             echo "BUCKET_REGION=$BUCKET_REGION" >> app.env
             echo "ACCESS_KEY=$ACCESS_KEY" >> app.env
             echo "SECRET_ACCESS_KEY=$SECRET_ACCESS_KEY" >> app.env
-            echo "SES_ACCESS_KEY=$SES_ACCESS_KEY" >> app.env
-            echo "SES_SECRET_ACCESS_KEY=$SES_SECRET_ACCESS_KEY" >> app.env
-            echo "SES_EMAIL_SOURCE=$SES_EMAIL_SOURCE" >> app.env
             echo "PORT=$PORT" >> app.env
             echo "DB_URI=$DB_URI" >> app.env
             echo "SALT_WORK_FACTOR=$SALT_WORK_FACTOR" >> app.env
@@ -82,6 +79,9 @@ jobs:
             echo "S3_BUCKET_URL=$S3_BUCKET_URL" >> app.env
             echo "DOMAIN=$DOMAIN" >> app.env
             echo "PRIVATE_KEY=$PRIVATE_KEY" >> app.env
+            echo "SES_ACCESS_KEY=$SES_ACCESS_KEY" >> app.env
+            echo "SES_SECRET_ACCESS_KEY=$SES_SECRET_ACCESS_KEY" >> app.env
+            echo "SES_EMAIL_SOURCE=$SES_EMAIL_SOURCE" >> app.env
             echo "PUBLIC_KEY=$PUBLIC_KEY" >> app.env 
 
             npm install
