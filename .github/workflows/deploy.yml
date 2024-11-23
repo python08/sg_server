@@ -26,7 +26,7 @@ jobs:
         run: npm run build
 
       - name: Debug SES key
-        run: "echo ses email source is ${{ secrets.SES_EMAIL_SOURCE }}"
+        run: "echo ses email source is ${{ secrets.SES_EMAIL_SOURCE }} and domain is ${{ secrets.DOMAIN }}"
 
       - name: Deploy to EC2
         env:

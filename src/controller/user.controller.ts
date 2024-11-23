@@ -33,6 +33,8 @@ export async function requestPasswordResetHandler(
   req: Request<{}, {}, CreateUserInput["body"]>,
   res: Response
 ) {
+  console.log("origin: ", process.env.ORIGIN);
+  console.log("SES_EMAIL_SOURCE: ", process.env.SES_EMAIL_SOURCE);
   const { email } = req.body;
   const userDetails = await requestPasswordReset(email);
   if (userDetails) {
