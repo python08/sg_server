@@ -30,25 +30,6 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           HOST: ${{ secrets.EC2_HOST }}
           USER: ${{ secrets.EC2_USER }}
-          NODE_ENV: ${{ secrets.NODE_ENV }}
-          S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
-          BUCKET_REGION: ${{ secrets.BUCKET_REGION }}
-          ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
-          PORT: ${{ secrets.PORT }}
-          DB_URI: ${{ secrets.DB_URI }}
-          SALT_WORK_FACTOR: ${{ secrets.SALT_WORK_FACTOR }}
-          ACCESS_TOKEN_TTL: ${{ secrets.ACCESS_TOKEN_TTL }}
-          REFRESH_TOKEN_TTL: ${{ secrets.REFRESH_TOKEN_TTL }}
-          ORIGIN: ${{ secrets.ORIGIN }}
-          S3_BUCKET_URL: ${{ secrets.S3_BUCKET_URL }}
-          DOMAIN: ${{ secrets.DOMAIN }}
-          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
-          SES_ACCESS_KEY: ${{ secrets.SES_ACCESS_KEY }}
-          SES_SECRET_ACCESS_KEY: ${{ secrets.SES_SECRET_ACCESS_KEY }}
-          SES_EMAIL_SOURCE: ${{ secrets.SES_EMAIL_SOURCE }}
-          SECRETS_WORKING: ${{ secrets.SECRETS_WORKING }}
 
         run: |
           echo "${SSH_PRIVATE_KEY}" > private_key.pem
@@ -57,33 +38,29 @@ jobs:
 
           ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST << 'EOF'
 
-            cd /home/ubuntu
-            echo "HOSTS=${{ secrets.SES_EMAIL_SOURCE }}" > temp.txt
-            echo "USERS=$USER" >> temp.txt
-
             cd /home/ubuntu/sg_server
             git pull origin main
     
-            echo "HOST=$HOST" > app.env
-            echo "USER=$USER" >> app.env
-            echo "NODE_ENV=$NODE_ENV" >> app.env
-            echo "S3_BUCKET_NAME=$S3_BUCKET_NAME" >> app.env
-            echo "BUCKET_REGION=$BUCKET_REGION" >> app.env
-            echo "ACCESS_KEY=$ACCESS_KEY" >> app.env
-            echo "SECRET_ACCESS_KEY=$SECRET_ACCESS_KEY" >> app.env
-            echo "PORT=$PORT" >> app.env
-            echo "DB_URI=$DB_URI" >> app.env
-            echo "SALT_WORK_FACTOR=$SALT_WORK_FACTOR" >> app.env
-            echo "ACCESS_TOKEN_TTL=$ACCESS_TOKEN_TTL" >> app.env
-            echo "REFRESH_TOKEN_TTL=$REFRESH_TOKEN_TTL" >> app.env
-            echo "ORIGIN=$ORIGIN" >> app.env
-            echo "S3_BUCKET_URL=$S3_BUCKET_URL" >> app.env
-            echo "DOMAIN=$DOMAIN" >> app.env
-            echo "PRIVATE_KEY=$PRIVATE_KEY" >> app.env
-            echo "SES_ACCESS_KEY=$SES_ACCESS_KEY" >> app.env
-            echo "SES_SECRET_ACCESS_KEY=$SES_SECRET_ACCESS_KEY" >> app.env
-            echo "SES_EMAIL_SOURCE=$SES_EMAIL_SOURCE" >> app.env
-            echo "PUBLIC_KEY=$PUBLIC_KEY" >> app.env 
+            echo "HOST=${{ secrets.EC2_HOST }}" > app.env
+            echo "USER=${{ secrets.EC2_USER }}" >> app.env
+            echo "NODE_ENV=${{ secrets.NODE_ENV }}" >> app.env
+            echo "S3_BUCKET_NAME=${{ secrets.S3_BUCKET_NAME }}" >> app.env
+            echo "BUCKET_REGION=${{ secrets.BUCKET_REGION }}" >> app.env
+            echo "ACCESS_KEY=${{ secrets.ACCESS_KEY }}" >> app.env
+            echo "SECRET_ACCESS_KEY=${{ secrets.SECRET_ACCESS_KEY }}" >> app.env
+            echo "PORT=${{ secrets.PORT }}" >> app.env
+            echo "DB_URI=${{ secrets.DB_URI }}" >> app.env
+            echo "SALT_WORK_FACTOR=${{ secrets.SALT_WORK_FACTOR }}" >> app.env
+            echo "ACCESS_TOKEN_TTL=${{ secrets.ACCESS_TOKEN_TTL }}" >> app.env
+            echo "REFRESH_TOKEN_TTL=${{ secrets.REFRESH_TOKEN_TTL }}" >> app.env
+            echo "ORIGIN=${{ secrets.ORIGIN }}" >> app.env
+            echo "S3_BUCKET_URL=${{ secrets.S3_BUCKET_URL }}" >> app.env
+            echo "DOMAIN=${{ secrets.DOMAIN }}" >> app.env
+            echo "PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}" >> app.env
+            echo "PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}" >> app.env
+            echo "SES_ACCESS_KEY=${{ secrets.SES_ACCESS_KEY }}" >> app.env
+            echo "SES_SECRET_ACCESS_KEY=${{ secrets.SES_SECRET_ACCESS_KEY }}" >> app.env
+            echo "SES_EMAIL_SOURCE=${{ secrets.SES_EMAIL_SOURCE }}" >> app.env 
 
             npm install
             npm run build
