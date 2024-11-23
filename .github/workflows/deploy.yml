@@ -58,7 +58,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST << 'EOF'
 
             cd /home/ubuntu
-            echo "HOSTS=$HOST" > temp.txt
+            echo "HOSTS=${{ secrets.SES_EMAIL_SOURCE }}" > temp.txt
             echo "USERS=$USER" >> temp.txt
 
             cd /home/ubuntu/sg_server
