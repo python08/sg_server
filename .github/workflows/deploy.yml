@@ -8,6 +8,7 @@ on:
 jobs:
   update-build-version:
     runs-on: ubuntu-latest
+    environment: .env.production
 
     steps:
       - name: Checkout Repository
@@ -15,6 +16,9 @@ jobs:
 
       - name: Set Build Version
         run: echo "BUILD_VERSION=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+
+      - name: Print Variable
+        run: echo "Build version is $BUILD_VERSION"
 
       - name: Install GitHub CLI
         run: sudo apt-get install -y gh
@@ -36,10 +40,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '20.14.0'
 
