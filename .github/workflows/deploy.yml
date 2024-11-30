@@ -23,23 +23,36 @@ jobs:
           echo -n "$BUILD_VERSION" | base64 | tr -d '\n' > encoded_version.txt
           echo "ENCODED_VERSION=$(cat encoded_version.txt)" >> $GITHUB_ENV
   
-      - name: Update GitHub Secret via REST API
+      - name: Update Environment Secret via REST API
         env:
-          REPO: ${{ github.repository }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
+          ENV_NAME: production
+          SECRET_NAME: BUILD_VERSION
+          SECRET_VALUE: ${{ env.ENCODED_VERSION }}
         run: |
-          SECRET_NAME="BUILD_VERSION"
-          ENCODED_SECRET=$ENCODED_VERSION
-          echo "Updating secret: $SECRET_NAME with value $ENCODED_SECRET"
-          
-          curl -X PUT \
-            -H "Authorization: token $GITHUB_TOKEN" \
+          # Fetch environment public key
+          RESPONSE=$(curl -s -X GET \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/$REPO/actions/secrets/$SECRET_NAME \
+            https://api.github.com/repos/$OWNER/$REPO/environments/$ENV_NAME/secrets/public-key)
+  
+          PUBLIC_KEY=$(echo $RESPONSE | jq -r '.key')
+          KEY_ID=$(echo $RESPONSE | jq -r '.key_id')
+  
+          # Encrypt the secret value
+          ENCRYPTED_VALUE=$(echo -n "$SECRET_VALUE" | openssl rsautl -encrypt -pubin -inkey <(echo "$PUBLIC_KEY") | base64 -w 0)
+  
+          # Update the environment secret
+          curl -X PUT \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/$OWNER/$REPO/environments/$ENV_NAME/secrets/$SECRET_NAME \
             -d @- <<EOF
           {
-            "encrypted_value": "$ENCODED_SECRET",
-            "key_id": "your-public-key-id"
+            "encrypted_value": "$ENCRYPTED_VALUE",
+            "key_id": "$KEY_ID"
           }
           EOF
 
