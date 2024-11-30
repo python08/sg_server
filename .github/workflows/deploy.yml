@@ -6,71 +6,6 @@ on:
       - main
 
 jobs:
-  update-build-version:
-    runs-on: ubuntu-latest
-    environment: .env.production
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Set Build Version
-        run: echo "BUILD_VERSION=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
-
-      - name: Encode Build Version in Base64
-        id: encode-version
-        run: |
-          echo -n "$BUILD_VERSION" | base64 | tr -d '\n' > encoded_version.txt
-          echo "ENCODED_VERSION=$(cat encoded_version.txt)" >> $GITHUB_ENV
-  
-      - name: Update Environment Secret via REST API
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_SECRET }}
-          OWNER: ${{ github.repository_owner }}
-          REPO: ${{ github.event.repository.name }}
-          ENV_NAME: .env.production
-          SECRET_NAME: BUILD_VERSION
-          SECRET_VALUE: ${{ env.ENCODED_VERSION }}
-        run: |
-
-          # Fetch environment public key
-          RESPONSE=$(curl -s -X GET \
-            -H "Authorization: Bearer $GITHUB_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/$OWNER/$REPO/environments/$ENV_NAME/secrets/public-key)
-  
-          PUBLIC_KEY=$(echo $RESPONSE | jq -r '.key')
-          KEY_ID=$(echo $RESPONSE | jq -r '.key_id')
-
-          echo "Public Key Response: $RESPONSE"
-          echo "Extracted Key: $PUBLIC_KEY"
-          echo "Extracted Key ID: $KEY_ID"
-
-          # Validate that the public key is fetched correctly
-          if [ -z "$PUBLIC_KEY" ] || [ "$PUBLIC_KEY" == "null" ]; then
-          echo "Error: Could not fetch public key. Response: $RESPONSE"
-          exit 1
-          fi
-  
-          # Save the public key to a file
-          echo "-----BEGIN PUBLIC KEY-----" > public.pem
-          echo "$PUBLIC_KEY" | fold -w 64 >> public.pem
-          echo "-----END PUBLIC KEY-----" >> public.pem
-
-          # Encrypt the secret value using the PEM file
-          ENCRYPTED_VALUE=$(echo -n "$SECRET_VALUE" | openssl pkeyutl -encrypt -pubin -inkey public.pem | base64 -w 0)
-
-          # Remove the PEM file after use
-          rm -f public.pem
-          echo "ENCRYPTED_VALUE: $ENCRYPTED_VALUE"
-  
-          # Update the environment secret
-          gh api \
-          --method PUT \
-          -H "Accept: application/vnd.github+json" \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          /repos/OWNER/REPO/environments/ENVIRONMENT_NAME/secrets/SECRET_NAME \
-          -f "encrypted_value=$ENCRYPTED_VALUE" -f "key_id="$KEY_ID"
 
   deploy:
     runs-on: ubuntu-latest
@@ -125,7 +60,8 @@ jobs:
             echo "PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}" >> app.env
             echo "SES_ACCESS_KEY=${{ secrets.SES_ACCESS_KEY }}" >> app.env
             echo "SES_SECRET_ACCESS_KEY=${{ secrets.SES_SECRET_ACCESS_KEY }}" >> app.env
-            echo "SES_EMAIL_SOURCE=${{ secrets.SES_EMAIL_SOURCE }}" >> app.env 
+            echo "SES_EMAIL_SOURCE=${{ secrets.SES_EMAIL_SOURCE }}" >> app.env
+            echo "BUILD_VERSION=$(date +%Y%m%d%H%M%S)" >> app.env
 
             chmod 600 app.env
             sudo chown ubuntu:ubuntu app.env

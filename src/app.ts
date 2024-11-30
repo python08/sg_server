@@ -34,6 +34,7 @@ app.use(
 app.use(deserializeUser); // executes on all req
 
 console.log("Running in", process.env.NODE_ENV, "mode");
+console.log("BUILD_VERSION: ", process.env.BUILD_VERSION);
 
 app.listen(port, async () => {
   logger.info(`app running at http://localhost:${port}`);
