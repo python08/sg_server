@@ -33,10 +33,6 @@ jobs:
           SECRET_VALUE: ${{ env.ENCODED_VERSION }}
         run: |
 
-          echo "Public Key Response: $RESPONSE"
-          echo "Extracted Key: $PUBLIC_KEY"
-          echo "Extracted Key ID: $KEY_ID"
-
           # Fetch environment public key
           RESPONSE=$(curl -s -X GET \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
@@ -45,9 +41,19 @@ jobs:
   
           PUBLIC_KEY=$(echo $RESPONSE | jq -r '.key')
           KEY_ID=$(echo $RESPONSE | jq -r '.key_id')
+
+          echo "Public Key Response: $RESPONSE"
+          echo "Extracted Key: $PUBLIC_KEY"
+          echo "Extracted Key ID: $KEY_ID"
+
+          # Validate that the public key is fetched correctly
+          if [ -z "$PUBLIC_KEY" ] || [ "$PUBLIC_KEY" == "null" ]; then
+          echo "Error: Could not fetch public key. Response: $RESPONSE"
+          exit 1
+          fi
   
           # Encrypt the secret value
-          ENCRYPTED_VALUE=$(echo -n "$SECRET_VALUE" | openssl rsautl -encrypt -pubin -inkey <(echo "$PUBLIC_KEY") | base64 -w 0)
+          ENCRYPTED_VALUE=$(echo -n "$SECRET_VALUE" | openssl pkeyutl -encrypt -pubin -inkey <(echo "$PUBLIC_KEY") | base64 -w 0)
   
           # Update the environment secret
           curl -X PUT \
