@@ -52,13 +52,16 @@ jobs:
           exit 1
           fi
   
-          # Format the public key as PEM
-          PEM_PUBLIC_KEY=$(echo "-----BEGIN PUBLIC KEY-----" \
-          && echo "$PUBLIC_KEY" | fold -w 64 \
-          && echo "-----END PUBLIC KEY-----")
+          # Save the public key to a file
+          echo "-----BEGIN PUBLIC KEY-----" > public.pem
+          echo "$PUBLIC_KEY" | fold -w 64 >> public.pem
+          echo "-----END PUBLIC KEY-----" >> public.pem
 
-          # Encrypt the secret value
-          ENCRYPTED_VALUE=$(echo -n "$SECRET_VALUE" | openssl pkeyutl -encrypt -pubin -inkey <(echo "$PEM_PUBLIC_KEY") | base64 -w 0)
+          # Encrypt the secret value using the PEM file
+          ENCRYPTED_VALUE=$(echo -n "$SECRET_VALUE" | openssl pkeyutl -encrypt -pubin -inkey public.pem | base64 -w 0)
+
+          # Remove the PEM file after use
+          rm -f public.pem
           echo "ENCRYPTED_VALUE: $ENCRYPTED_VALUE"
   
           # Update the environment secret
