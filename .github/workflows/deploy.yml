@@ -17,23 +17,30 @@ jobs:
       - name: Set Build Version
         run: echo "BUILD_VERSION=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
 
-      - name: Print Variable
-        run: echo "Build version is $BUILD_VERSION"
-
-      - name: Install GitHub CLI
-        run: sudo apt-get install -y gh
-
-      - name: Authenticate with GitHub CLI
-        run: echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
-
-      - name: Update GitHub Environment Variable
+      - name: Encode Build Version in Base64
+        id: encode-version
         run: |
-          gh api \
-          --method PUT \
-          -H "Accept: application/vnd.github+json" \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-            repos/${{ github.repository }}/environments/.app.production/secrets/BUILD_VERSION \
-            -f encrypted_value="${BUILD_VERSION}"
+          echo -n "$BUILD_VERSION" | base64 | tr -d '\n' > encoded_version.txt
+          echo "ENCODED_VERSION=$(cat encoded_version.txt)" >> $GITHUB_ENV
+  
+      - name: Update GitHub Secret via REST API
+        env:
+          REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          SECRET_NAME="BUILD_VERSION"
+          ENCODED_SECRET=$ENCODED_VERSION
+          echo "Updating secret: $SECRET_NAME with value $ENCODED_SECRET"
+          
+          curl -X PUT \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/$REPO/actions/secrets/$SECRET_NAME \
+            -d @- <<EOF
+          {
+            "encrypted_value": "$ENCODED_SECRET",
+            "key_id": "your-public-key-id"
+          }
 
   deploy:
     runs-on: ubuntu-latest
