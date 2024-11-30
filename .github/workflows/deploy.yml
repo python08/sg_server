@@ -26,7 +26,7 @@ jobs:
       - name: Update Environment Secret via REST API
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OWNER: ${{ github.GITHUB_REPOSITORY }}
+          OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.event.repository.name }}
           ENV_NAME: .env.production
           SECRET_NAME: BUILD_VERSION
