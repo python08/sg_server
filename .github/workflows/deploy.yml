@@ -25,13 +25,18 @@ jobs:
   
       - name: Update Environment Secret via REST API
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_SECRET }}
           OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.event.repository.name }}
           ENV_NAME: .env.production
           SECRET_NAME: BUILD_VERSION
           SECRET_VALUE: ${{ env.ENCODED_VERSION }}
         run: |
+
+          echo "Public Key Response: $RESPONSE"
+          echo "Extracted Key: $PUBLIC_KEY"
+          echo "Extracted Key ID: $KEY_ID"
+
           # Fetch environment public key
           RESPONSE=$(curl -s -X GET \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
