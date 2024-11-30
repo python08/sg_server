@@ -23,7 +23,6 @@ app.use(cookieParser());
 // for body parser
 app.use(express.json());
 
-console.log("origin: ",  process.env.ORIGIN.split(", "))
 app.use(
   cors({
     origin: process.env.ORIGIN.split(", "),
@@ -34,7 +33,6 @@ app.use(
 app.use(deserializeUser); // executes on all req
 
 console.log("Running in", process.env.NODE_ENV, "mode");
-console.log("BUILD_VERSION: ", process.env.BUILD_VERSION);
 
 app.listen(port, async () => {
   logger.info(`app running at http://localhost:${port}`);
