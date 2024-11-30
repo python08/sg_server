@@ -26,8 +26,7 @@ jobs:
       - name: Update Environment Secret via REST API
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OWNER: ${{ github.repository_owner }}
-          REPO: ${{ github.event.repository.name }}
+          GITHUB_REPOSITORY: ${{ github.GITHUB_REPOSITORY }}
           ENV_NAME: .app.production
           SECRET_NAME: BUILD_VERSION
           SECRET_VALUE: ${{ env.ENCODED_VERSION }}
@@ -36,7 +35,7 @@ jobs:
           RESPONSE=$(curl -s -X GET \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/$OWNER/$REPO/environments/$ENV_NAME/secrets/public-key)
+            https://api.github.com/repos/$GITHUB_REPOSITORY/environments/$ENV_NAME/secrets/public-key)
   
           PUBLIC_KEY=$(echo $RESPONSE | jq -r '.key')
           KEY_ID=$(echo $RESPONSE | jq -r '.key_id')
@@ -48,7 +47,7 @@ jobs:
           curl -X PUT \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github+json" \
-            https://api.github.com/repos/$OWNER/$REPO/environments/$ENV_NAME/secrets/$SECRET_NAME \
+            https://api.github.com/repos/$GITHUB_REPOSITORY/environments/$ENV_NAME/secrets/$SECRET_NAME \
             -d @- <<EOF
           {
             "encrypted_value": "$ENCRYPTED_VALUE",
