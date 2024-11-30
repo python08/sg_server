@@ -54,6 +54,7 @@ jobs:
   
           # Encrypt the secret value
           ENCRYPTED_VALUE=$(echo -n "$SECRET_VALUE" | openssl pkeyutl -encrypt -pubin -inkey <(echo "$PUBLIC_KEY") | base64 -w 0)
+          echo "ENCRYPTED_VALUE: $ENCRYPTED_VALUE"
   
           # Update the environment secret
           gh api \
