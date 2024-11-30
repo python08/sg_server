@@ -41,6 +41,7 @@ jobs:
             "encrypted_value": "$ENCODED_SECRET",
             "key_id": "your-public-key-id"
           }
+          EOF
 
   deploy:
     runs-on: ubuntu-latest
