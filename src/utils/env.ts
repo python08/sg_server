@@ -18,7 +18,6 @@ const envVariables = object({
   PRIVATE_KEY: string(),
   PUBLIC_KEY: string(),
   NODE_ENV: string(),
-  BUILD_VERSION: string(), // for production only
 });
 
 envVariables.parse(process.env);

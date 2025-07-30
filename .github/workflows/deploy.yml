@@ -61,7 +61,6 @@ jobs:
             echo "SES_ACCESS_KEY=${{ secrets.SES_ACCESS_KEY }}" >> app.env
             echo "SES_SECRET_ACCESS_KEY=${{ secrets.SES_SECRET_ACCESS_KEY }}" >> app.env
             echo "SES_EMAIL_SOURCE=${{ secrets.SES_EMAIL_SOURCE }}" >> app.env
-            echo "BUILD_VERSION=$(date +%Y%m%d%H%M%S)" >> app.env
 
             chmod 600 app.env
             sudo chown ubuntu:ubuntu app.env

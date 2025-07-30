@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export function signJwt(object: Object, option?: jwt.SignOptions | undefined) {
-  return jwt.sign({ ...object, buildVersion: process.env.BUILD_VERSION, }, process.env.PRIVATE_KEY, {
+  return jwt.sign(object, process.env.PRIVATE_KEY, {
     ...(option && option),
     algorithm: "RS256",
   });
@@ -10,10 +10,6 @@ export function signJwt(object: Object, option?: jwt.SignOptions | undefined) {
 export function verifyJwt(token: string) {
   try {
     const decoded: any = jwt.verify(token, process.env.PUBLIC_KEY); // find proper type FP
-
-    if (decoded.buildVersion !== process.env.BUILD_VERSION) {
-      throw new Error('jwt expired');
-    }
     
     return {
       valid: true,
