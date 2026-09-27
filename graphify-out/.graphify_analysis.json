@@ -1,0 +1,501 @@
+{
+  "communities": {
+    "0": [
+      "package",
+      "package_author",
+      "package_description",
+      "package_keywords",
+      "package_license",
+      "package_main",
+      "package_name",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_start",
+      "package_scripts_start_prod",
+      "package_scripts_test",
+      "package_version",
+      "ref_aws_sdk",
+      "ref_body_parser",
+      "ref_config",
+      "ref_cross_env",
+      "ref_crypto_js",
+      "ref_dotenv",
+      "ref_envalid",
+      "ref_nanoid",
+      "ref_nodemon",
+      "ref_pino_pretty",
+      "ref_serverless_http",
+      "ref_ts_node",
+      "ref_ts_node_dev",
+      "ref_types_bcrypt",
+      "ref_types_body_parser",
+      "ref_types_config",
+      "ref_types_cookie_parser",
+      "ref_types_cors",
+      "ref_types_express",
+      "ref_types_jsonwebtoken",
+      "ref_types_lodash",
+      "ref_types_nanoid",
+      "ref_types_node",
+      "ref_types_pino",
+      "ref_typescript",
+      "src_middleware_aws_ses_config",
+      "src_middleware_aws_ses_config_aws",
+      "src_middleware_aws_ses_config_aws_ses",
+      "src_middleware_aws_ses_config_ses_config",
+      "src_utils_aws_ses"
+    ],
+    "1": [
+      "ref_aws_sdk_client_s3",
+      "ref_mongodb",
+      "ref_multer",
+      "src_controller_product_controller",
+      "src_controller_product_controller_createproducthandler",
+      "src_controller_product_controller_deleteproducthandler",
+      "src_controller_product_controller_deleteproductimagehandler",
+      "src_controller_product_controller_getactiveproducthandler",
+      "src_controller_product_controller_getallproducthandler",
+      "src_controller_product_controller_getproductdetailshandler",
+      "src_controller_product_controller_updateproducthandler",
+      "src_controller_product_controller_uploadproductimagehandler",
+      "src_db_lookup",
+      "src_db_lookup_getactiveproductlookup",
+      "src_db_lookup_getallproductslookup",
+      "src_db_lookup_getproductbyidlookup",
+      "src_middleware_aws_s3_config",
+      "src_middleware_aws_s3_config_s3",
+      "src_routes_product_route",
+      "src_routes_product_route_multer",
+      "src_routes_product_route_storage",
+      "src_routes_product_route_upload",
+      "src_schema_product_schema",
+      "src_schema_product_schema_createproductinput",
+      "src_schema_product_schema_createproductschema",
+      "src_schema_product_schema_deleteproductinput",
+      "src_schema_product_schema_deleteproductschema",
+      "src_schema_product_schema_getproductinput",
+      "src_schema_product_schema_getproductschema",
+      "src_schema_product_schema_params",
+      "src_schema_product_schema_payload",
+      "src_schema_product_schema_updateproductinput",
+      "src_schema_product_schema_updateproductschema",
+      "src_service_product_service",
+      "src_service_product_service_createproduct",
+      "src_service_product_service_deleteproduct",
+      "src_service_product_service_findandupdateproduct",
+      "src_service_product_service_findproduct",
+      "src_service_product_service_getactiveproduct",
+      "src_service_product_service_getallproduct",
+      "src_utils_util",
+      "src_utils_util_randomimagename"
+    ],
+    "2": [
+      "ref_bcrypt",
+      "ref_mongoose",
+      "src_models_festival",
+      "src_models_festival_festivalmodel",
+      "src_models_festival_festivalschema",
+      "src_models_product",
+      "src_models_product_model",
+      "src_models_product_model_productdocument",
+      "src_models_product_model_productinput",
+      "src_models_product_model_productmodel",
+      "src_models_product_model_productschema",
+      "src_models_product_productmodel",
+      "src_models_product_productschema",
+      "src_models_session_model",
+      "src_models_session_model_sessioninput",
+      "src_models_session_model_sessionmodel",
+      "src_models_session_model_sessionschema",
+      "src_models_update",
+      "src_models_update_updatemodel",
+      "src_models_update_updateschema",
+      "src_models_updates_model",
+      "src_models_updates_model_updatesdocument",
+      "src_models_updates_model_updatesinput",
+      "src_models_updates_model_updatesmodel",
+      "src_models_updates_model_updatesschema",
+      "src_models_user",
+      "src_models_user_model",
+      "src_models_user_model_userdocument",
+      "src_models_user_model_userinput",
+      "src_models_user_model_usermodel",
+      "src_models_user_model_userschema",
+      "src_models_user_usermodel",
+      "src_models_user_userschema",
+      "src_models_welcomevideo",
+      "src_models_welcomevideo_welcomevideomodel",
+      "src_models_welcomevideo_welcomevideoschema",
+      "src_service_updates_service"
+    ],
+    "3": [
+      "ref_crypto",
+      "ref_express",
+      "ref_zod",
+      "src_controller_user_controller",
+      "src_controller_user_controller_createuserhandler",
+      "src_controller_user_controller_getcurrentuserhandler",
+      "src_controller_user_controller_requestpasswordresethandler",
+      "src_controller_user_controller_resetpasswordhandler",
+      "src_middleware_require_user",
+      "src_middleware_require_user_requireuser",
+      "src_middleware_validate_resource",
+      "src_middleware_validate_resource_validate",
+      "src_routes",
+      "src_routes_product_route_productroutes",
+      "src_routes_routes",
+      "src_routes_session_route",
+      "src_routes_session_route_sessionroutes",
+      "src_routes_user_route",
+      "src_routes_user_route_userroutes",
+      "src_schema_session_schema",
+      "src_schema_session_schema_createsessionschema",
+      "src_schema_user_schema",
+      "src_schema_user_schema_createuserinput",
+      "src_schema_user_schema_createuserscehma",
+      "src_schema_user_schema_params",
+      "src_schema_user_schema_userresettokenschema",
+      "src_service_user_service_createuser",
+      "src_service_user_service_requestpasswordreset",
+      "src_service_user_service_resetpassword",
+      "src_utils_aws_ses_sendemail"
+    ],
+    "4": [
+      "package_dependencies",
+      "package_dependencies_aws_sdk",
+      "package_dependencies_aws_sdk_client_s3",
+      "package_dependencies_bcrypt",
+      "package_dependencies_body_parser",
+      "package_dependencies_config",
+      "package_dependencies_cookie_parser",
+      "package_dependencies_cors",
+      "package_dependencies_crypto_js",
+      "package_dependencies_dayjs",
+      "package_dependencies_dotenv",
+      "package_dependencies_envalid",
+      "package_dependencies_express",
+      "package_dependencies_jsonwebtoken",
+      "package_dependencies_lodash",
+      "package_dependencies_mongodb",
+      "package_dependencies_mongoose",
+      "package_dependencies_multer",
+      "package_dependencies_nanoid",
+      "package_dependencies_pino",
+      "package_dependencies_pino_pretty",
+      "package_dependencies_serverless_http",
+      "package_dependencies_zod"
+    ],
+    "5": [
+      "ref_jsonwebtoken",
+      "ref_lodash",
+      "src_controller_session_controller",
+      "src_controller_session_controller_createusersessionhandler",
+      "src_controller_session_controller_deleteusersessionhandler",
+      "src_controller_session_controller_getusersessionhandler",
+      "src_middleware_de_serialize_user",
+      "src_middleware_de_serialize_user_deserializeuser",
+      "src_service_session_service",
+      "src_service_session_service_createsession",
+      "src_service_session_service_findsessions",
+      "src_service_session_service_reissueaccesstoken",
+      "src_service_session_service_updatesessions",
+      "src_service_user_service",
+      "src_service_user_service_finduser",
+      "src_service_user_service_validatepassword",
+      "src_utils_jwt_utils",
+      "src_utils_jwt_utils_createaccesstoken",
+      "src_utils_jwt_utils_signjwt",
+      "src_utils_jwt_utils_verifyjwt"
+    ],
+    "6": [
+      "src_controller_updates_controller",
+      "src_controller_updates_controller_findupdateshandler",
+      "src_controller_updates_controller_getallupdateshandler",
+      "src_routes_updates_route",
+      "src_routes_updates_route_updatesroutes",
+      "src_schema_updates_schema",
+      "src_schema_updates_schema_createupdatesinput",
+      "src_schema_updates_schema_createupdatesschema",
+      "src_schema_updates_schema_deleteupdatesinput",
+      "src_schema_updates_schema_deleteupdatesschema",
+      "src_schema_updates_schema_getupdatesinput",
+      "src_schema_updates_schema_getupdatesschema",
+      "src_schema_updates_schema_params",
+      "src_schema_updates_schema_payload",
+      "src_schema_updates_schema_updateupdatesinput",
+      "src_schema_updates_schema_updateupdatesschema",
+      "src_service_updates_service_findupdatesbyid",
+      "src_service_updates_service_getallupdates"
+    ],
+    "7": [
+      "package_devdependencies",
+      "package_devdependencies_cross_env",
+      "package_devdependencies_nodemon",
+      "package_devdependencies_ts_node",
+      "package_devdependencies_ts_node_dev",
+      "package_devdependencies_types_bcrypt",
+      "package_devdependencies_types_body_parser",
+      "package_devdependencies_types_config",
+      "package_devdependencies_types_cookie_parser",
+      "package_devdependencies_types_cors",
+      "package_devdependencies_types_express",
+      "package_devdependencies_types_jsonwebtoken",
+      "package_devdependencies_types_lodash",
+      "package_devdependencies_types_nanoid",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_pino",
+      "package_devdependencies_typescript"
+    ],
+    "8": [
+      "src_controller_category_controller",
+      "src_controller_category_controller_getallcategoryhandler",
+      "src_models_category_model",
+      "src_models_category_model_categorydocument",
+      "src_models_category_model_categoryinput",
+      "src_models_category_model_categorymodel",
+      "src_models_category_model_categoryschema",
+      "src_routes_category_route",
+      "src_routes_category_route_categoryroutes",
+      "src_service_category_service",
+      "src_service_category_service_createcategory",
+      "src_service_category_service_deletecategory",
+      "src_service_category_service_findandupdatecategory",
+      "src_service_category_service_findcategory",
+      "src_service_category_service_getallcategory"
+    ],
+    "9": [
+      "src_controller_festival_controller",
+      "src_controller_festival_controller_getallfestivalhandler",
+      "src_models_festival_model",
+      "src_models_festival_model_festivaldocument",
+      "src_models_festival_model_festivalinput",
+      "src_models_festival_model_festivalmodel",
+      "src_models_festival_model_festivalschema",
+      "src_routes_festival_route",
+      "src_routes_festival_route_festivalroutes",
+      "src_service_festival_service",
+      "src_service_festival_service_createfestival",
+      "src_service_festival_service_deletefestival",
+      "src_service_festival_service_findandupdatefestival",
+      "src_service_festival_service_findfestival",
+      "src_service_festival_service_getallfestival"
+    ],
+    "10": [
+      "ref_cookie_parser",
+      "ref_cors",
+      "ref_dayjs",
+      "ref_pino",
+      "src_app",
+      "src_app_app",
+      "src_app_cors",
+      "src_utils_connect",
+      "src_utils_connect_connect",
+      "src_utils_logger",
+      "src_utils_logger_log",
+      "src_utils_logger_transport"
+    ],
+    "11": [
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_forceconsistentcasinginfilenames",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_outdir",
+      "tsconfig_compileroptions_rootdir",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "12": [
+      "build_application",
+      "checkout",
+      "github_workflows_deploy_to_ec2",
+      "install_dependencies",
+      "setup_node",
+      "ssh_command"
+    ],
+    "13": [
+      "src_utils_env",
+      "src_utils_env_envvariables",
+      "src_utils_env_nodejs",
+      "src_utils_env_processenv"
+    ],
+    "14": [
+      "claude"
+    ],
+    "15": [
+      "config_default"
+    ],
+    "16": [
+      "github_workflows_deploy"
+    ]
+  },
+  "cohesion": {
+    "0": 0.04756871035940803,
+    "1": 0.09175377468060394,
+    "2": 0.07807807807807808,
+    "3": 0.16551724137931034,
+    "4": 0.08695652173913043,
+    "5": 0.2578947368421053,
+    "6": 0.1437908496732026,
+    "7": 0.11764705882352941,
+    "8": 0.20952380952380953,
+    "9": 0.20952380952380953,
+    "10": 0.22727272727272727,
+    "11": 0.16666666666666666,
+    "12": 0.3333333333333333,
+    "13": 0.5,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0
+  },
+  "gods": [
+    {
+      "id": "ref_mongoose",
+      "label": "mongoose",
+      "degree": 20
+    },
+    {
+      "id": "ref_express",
+      "label": "express",
+      "degree": 18
+    },
+    {
+      "id": "src_routes_product_route_productroutes",
+      "label": "productRoutes()",
+      "degree": 12
+    },
+    {
+      "id": "src_models_user_model_userdocument",
+      "label": "UserDocument",
+      "degree": 9
+    },
+    {
+      "id": "src_routes_user_route_userroutes",
+      "label": "userRoutes()",
+      "degree": 9
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 9
+    },
+    {
+      "id": "src_routes_routes",
+      "label": "routes()",
+      "degree": 8
+    },
+    {
+      "id": "src_routes_session_route_sessionroutes",
+      "label": "sessionRoutes()",
+      "degree": 8
+    },
+    {
+      "id": "src_utils_logger_log",
+      "label": "log",
+      "degree": 8
+    },
+    {
+      "id": "src_middleware_require_user_requireuser",
+      "label": "requireUser()",
+      "degree": 7
+    }
+  ],
+  "surprises": [
+    {
+      "source": "productRoutes()",
+      "target": "createProductHandler()",
+      "source_files": [
+        "src/routes/product.route.ts",
+        "src/controller/product.controller.ts"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "productRoutes()",
+      "target": "deleteProductHandler()",
+      "source_files": [
+        "src/routes/product.route.ts",
+        "src/controller/product.controller.ts"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "productRoutes()",
+      "target": "getActiveProductHandler()",
+      "source_files": [
+        "src/routes/product.route.ts",
+        "src/controller/product.controller.ts"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "productRoutes()",
+      "target": "getAllProductHandler()",
+      "source_files": [
+        "src/routes/product.route.ts",
+        "src/controller/product.controller.ts"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    },
+    {
+      "source": "productRoutes()",
+      "target": "getProductDetailsHandler()",
+      "source_files": [
+        "src/routes/product.route.ts",
+        "src/controller/product.controller.ts"
+      ],
+      "confidence": "INFERRED",
+      "relation": "indirect_call",
+      "why": "inferred connection - not explicitly stated in source; bridges separate communities"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `mongoose` connect `mongoose` to `package.json`, `product.controller.ts`, `session.controller.ts`, `category.service.ts`, `festival.service.ts`, `app.ts`?",
+      "why": "High betweenness centrality (0.289) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `express` connect `express` to `package.json`, `product.controller.ts`, `session.controller.ts`, `updates.schema.ts`, `category.service.ts`, `festival.service.ts`, `app.ts`?",
+      "why": "High betweenness centrality (0.159) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `dependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.132) - this node is a cross-community bridge."
+    },
+    {
+      "type": "verify_inferred",
+      "question": "Are the 8 inferred relationships involving `productRoutes()` (e.g. with `createProductHandler()` and `deleteProductHandler()`) actually correct?",
+      "why": "`productRoutes()` has 8 INFERRED edges - model-reasoned connections that need verification."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `CreateProductInput`, `UpdateProductInput`, `ProcessEnv` to the rest of the system?",
+      "why": "128 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `package.json` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.04756871035940803 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `product.controller.ts` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.09175377468060394 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
