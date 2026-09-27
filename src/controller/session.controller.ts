@@ -20,7 +20,8 @@ export async function createUserSessionHandler(
       message: "Invalid email or password.",
     });
   }
-
+  // https://docs.google.com/document/d/1Uuxe-GTRaW-vqV9rNUZZtX1dO-TFK-XFx-n2i1ow_iw/edit?tab=t.0#heading=h.xqnnrcy2g1oo
+  // user broswer details-> user-agent
   // Create session
   const session = await createSession(user._id, req.get("user-agent") || "");
   // Create an access token
@@ -45,7 +46,7 @@ export async function createUserSessionHandler(
 
   // set refreshToken in cookie
   res.cookie("refreshToken", refreshToken, {
-    maxAge: 3.154e10, //15min
+    maxAge: 3.154e10, // ?
     httpOnly: true,
     domain: process.env.DOMAIN,
     path: "/",

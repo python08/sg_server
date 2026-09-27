@@ -1,0 +1,16 @@
+# Exclude skill definitions and tool documentation
+.claude/
+.agents/
+.codex/
+
+# Exclude graphify internal outputs & logs
+graphify-out/
+
+# Exclude internal files
+*.svg
+*.png
+*.jpg
+*.ico
+
+.vscode
+node_modules

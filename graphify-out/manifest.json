@@ -1,0 +1,320 @@
+{
+  "config/default.ts": {
+    "mtime": 1720495350.0,
+    "seen": 1789734137.195359,
+    "ast_hash": "edb2f9e21dddac6a84e6e61d8342677c",
+    "semantic_hash": "edb2f9e21dddac6a84e6e61d8342677c"
+  },
+  "nodemon.json": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195363,
+    "ast_hash": "3e7a47636f7c87947d0bfe3316a10d45",
+    "semantic_hash": "3e7a47636f7c87947d0bfe3316a10d45"
+  },
+  "package.json": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195365,
+    "ast_hash": "43168729c6fc0aa11ca7de9c8c33ff1d",
+    "semantic_hash": "43168729c6fc0aa11ca7de9c8c33ff1d"
+  },
+  "src/app.ts": {
+    "mtime": 1775458568.0,
+    "seen": 1789734137.1953657,
+    "ast_hash": "02715dd4ad886306843de0ab1c96dbe9",
+    "semantic_hash": "02715dd4ad886306843de0ab1c96dbe9"
+  },
+  "src/controller/category.controller.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953664,
+    "ast_hash": "1b7486b4585a0cbba1b3e359aceaca20",
+    "semantic_hash": "1b7486b4585a0cbba1b3e359aceaca20"
+  },
+  "src/controller/festival.controller.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195367,
+    "ast_hash": "30fa69cc89e18a9dc0aa26131386fecd",
+    "semantic_hash": "30fa69cc89e18a9dc0aa26131386fecd"
+  },
+  "src/controller/product.controller.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195368,
+    "ast_hash": "c5c3fa7f26883500d656dd1067ddd1e5",
+    "semantic_hash": "c5c3fa7f26883500d656dd1067ddd1e5"
+  },
+  "src/controller/session.controller.ts": {
+    "mtime": 1767789706.0,
+    "seen": 1789734137.1953688,
+    "ast_hash": "dabbc022e1cd5ecc32708dc5c056da93",
+    "semantic_hash": "dabbc022e1cd5ecc32708dc5c056da93"
+  },
+  "src/controller/updates.controller.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953692,
+    "ast_hash": "23ff51e81f29b1fb81ab2955758ff532",
+    "semantic_hash": "23ff51e81f29b1fb81ab2955758ff532"
+  },
+  "src/controller/user.controller.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.19537,
+    "ast_hash": "024ba20c187c3ef85c97f1ee2fcfa371",
+    "semantic_hash": "024ba20c187c3ef85c97f1ee2fcfa371"
+  },
+  "src/db/lookup.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953704,
+    "ast_hash": "989670d257fe38dabec27994a750e16b",
+    "semantic_hash": "989670d257fe38dabec27994a750e16b"
+  },
+  "src/middleware/aws-s3-config.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953716,
+    "ast_hash": "4f227d41c401572452dc5bcef921a180",
+    "semantic_hash": "4f227d41c401572452dc5bcef921a180"
+  },
+  "src/middleware/aws-ses-config.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195372,
+    "ast_hash": "9c3f63d70c60382d5df2f76189d8e291",
+    "semantic_hash": "9c3f63d70c60382d5df2f76189d8e291"
+  },
+  "src/middleware/de-serialize-user.ts": {
+    "mtime": 1768536688.0,
+    "seen": 1789734137.1953728,
+    "ast_hash": "d4723aff5de84e99e972a5d4e8d48f05",
+    "semantic_hash": "d4723aff5de84e99e972a5d4e8d48f05"
+  },
+  "src/middleware/require-user.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953733,
+    "ast_hash": "9d3fe21740f5a14e314483a7664d09ff",
+    "semantic_hash": "9d3fe21740f5a14e314483a7664d09ff"
+  },
+  "src/middleware/validate-resource.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195374,
+    "ast_hash": "a245a36d002a078b558a88192e32c64a",
+    "semantic_hash": "a245a36d002a078b558a88192e32c64a"
+  },
+  "src/models/Festival.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953745,
+    "ast_hash": "87bfb4f7040a0eb3c575686dea0ccadf",
+    "semantic_hash": "87bfb4f7040a0eb3c575686dea0ccadf"
+  },
+  "src/models/Product.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953754,
+    "ast_hash": "61542620079b339a0ba1d18b0fd172c3",
+    "semantic_hash": "61542620079b339a0ba1d18b0fd172c3"
+  },
+  "src/models/Update.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195376,
+    "ast_hash": "2808a56bc25316383d001c6bbd00f457",
+    "semantic_hash": "2808a56bc25316383d001c6bbd00f457"
+  },
+  "src/models/User.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953764,
+    "ast_hash": "6be37544c1375522710bdb93e3930ab0",
+    "semantic_hash": "6be37544c1375522710bdb93e3930ab0"
+  },
+  "src/models/WelcomeVideo.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195377,
+    "ast_hash": "fd4fdf9554bf88a068749f5458a8abb0",
+    "semantic_hash": "fd4fdf9554bf88a068749f5458a8abb0"
+  },
+  "src/models/category.model.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953778,
+    "ast_hash": "4af47ad962c2a379c57c802aa38cc906",
+    "semantic_hash": "4af47ad962c2a379c57c802aa38cc906"
+  },
+  "src/models/festival.model.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953788,
+    "ast_hash": "e0cc24c86a990814affc967b77de29bd",
+    "semantic_hash": "e0cc24c86a990814affc967b77de29bd"
+  },
+  "src/models/product.model.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953795,
+    "ast_hash": "ce01d6ac95817668c6c52498ea41b8b6",
+    "semantic_hash": "ce01d6ac95817668c6c52498ea41b8b6"
+  },
+  "src/models/session.model.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.19538,
+    "ast_hash": "c5ddae0d930c4fc50f0f72112861e84d",
+    "semantic_hash": "c5ddae0d930c4fc50f0f72112861e84d"
+  },
+  "src/models/updates.model.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953804,
+    "ast_hash": "0bfd770b80021d64fdb777c69a48017b",
+    "semantic_hash": "0bfd770b80021d64fdb777c69a48017b"
+  },
+  "src/models/user.model.ts": {
+    "mtime": 1775453416.0,
+    "seen": 1789734137.1953812,
+    "ast_hash": "e8a229728c90688c2559351b3ff6166a",
+    "semantic_hash": "e8a229728c90688c2559351b3ff6166a"
+  },
+  "src/routes.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195382,
+    "ast_hash": "3e862d146b90fa2fc41f6c7170928676",
+    "semantic_hash": "3e862d146b90fa2fc41f6c7170928676"
+  },
+  "src/routes/category.route.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953826,
+    "ast_hash": "896e82719be8e9d1f1564bc4aeba37d7",
+    "semantic_hash": "896e82719be8e9d1f1564bc4aeba37d7"
+  },
+  "src/routes/festival.route.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953833,
+    "ast_hash": "b30b1c68fdc2495fd31ddf2e91cc7b1b",
+    "semantic_hash": "b30b1c68fdc2495fd31ddf2e91cc7b1b"
+  },
+  "src/routes/product.route.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195384,
+    "ast_hash": "15b2b9be2c9ad954ecfe5610a0e42fcc",
+    "semantic_hash": "15b2b9be2c9ad954ecfe5610a0e42fcc"
+  },
+  "src/routes/session.route.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953845,
+    "ast_hash": "74804febf4a3a859b408f7a7021b7a5a",
+    "semantic_hash": "74804febf4a3a859b408f7a7021b7a5a"
+  },
+  "src/routes/updates.route.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953855,
+    "ast_hash": "6696108069999846996b9645540d04e3",
+    "semantic_hash": "6696108069999846996b9645540d04e3"
+  },
+  "src/routes/user.route.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195386,
+    "ast_hash": "84720b0ecabf5f852253414001c298e9",
+    "semantic_hash": "84720b0ecabf5f852253414001c298e9"
+  },
+  "src/schema/product.schema.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953866,
+    "ast_hash": "4e0cba31bceacf03d5c28bf9275dcf51",
+    "semantic_hash": "4e0cba31bceacf03d5c28bf9275dcf51"
+  },
+  "src/schema/session.schema.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953871,
+    "ast_hash": "ec3f94ef0620ac452300a24c03349a77",
+    "semantic_hash": "ec3f94ef0620ac452300a24c03349a77"
+  },
+  "src/schema/updates.schema.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953878,
+    "ast_hash": "9a4d3d53580713534c9bb740871dc06d",
+    "semantic_hash": "9a4d3d53580713534c9bb740871dc06d"
+  },
+  "src/schema/user.schema.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953883,
+    "ast_hash": "da9effaaf1fc92da7482eea1bfb7d34d",
+    "semantic_hash": "da9effaaf1fc92da7482eea1bfb7d34d"
+  },
+  "src/service/category.service.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195389,
+    "ast_hash": "48fdb74734d7aa395f322cbd93c7289f",
+    "semantic_hash": "48fdb74734d7aa395f322cbd93c7289f"
+  },
+  "src/service/festival.service.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953897,
+    "ast_hash": "218952ee5a1af81cbffb64572a25455d",
+    "semantic_hash": "218952ee5a1af81cbffb64572a25455d"
+  },
+  "src/service/product.service.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953902,
+    "ast_hash": "f2a995e0cfea63871032a5b9cb263423",
+    "semantic_hash": "f2a995e0cfea63871032a5b9cb263423"
+  },
+  "src/service/session.service.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195391,
+    "ast_hash": "350b6e05f780720ecfee708c0e21d949",
+    "semantic_hash": "350b6e05f780720ecfee708c0e21d949"
+  },
+  "src/service/updates.service.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953914,
+    "ast_hash": "686f276b3eb3e520c090439f9ac4949b",
+    "semantic_hash": "686f276b3eb3e520c090439f9ac4949b"
+  },
+  "src/service/user.service.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953926,
+    "ast_hash": "8cb5a5bd7aca29bf2a5ccd7c311dfc0d",
+    "semantic_hash": "8cb5a5bd7aca29bf2a5ccd7c311dfc0d"
+  },
+  "src/utils/aws-ses.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195393,
+    "ast_hash": "3019559d97f893ac9457063934c293b9",
+    "semantic_hash": "3019559d97f893ac9457063934c293b9"
+  },
+  "src/utils/connect.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953938,
+    "ast_hash": "e7ffd1e5eaf6e48d1cdd1c9ebad58310",
+    "semantic_hash": "e7ffd1e5eaf6e48d1cdd1c9ebad58310"
+  },
+  "src/utils/env.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953943,
+    "ast_hash": "470f260508591844c2acab5b1bf550d1",
+    "semantic_hash": "470f260508591844c2acab5b1bf550d1"
+  },
+  "src/utils/jwt.utils.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195395,
+    "ast_hash": "4e32782e7e1f7397793782a16ebefe3f",
+    "semantic_hash": "4e32782e7e1f7397793782a16ebefe3f"
+  },
+  "src/utils/logger.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953955,
+    "ast_hash": "203a68429456d0e74a15637c0cf49f46",
+    "semantic_hash": "203a68429456d0e74a15637c0cf49f46"
+  },
+  "src/utils/util.ts": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953964,
+    "ast_hash": "1740d189a5cff5a0929f6eaf6bf0af9c",
+    "semantic_hash": "1740d189a5cff5a0929f6eaf6bf0af9c"
+  },
+  "tsconfig.json": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.195397,
+    "ast_hash": "294a422b8dedb4293d6d6ce83c96c581",
+    "semantic_hash": "294a422b8dedb4293d6d6ce83c96c581"
+  },
+  ".github/workflows/deploy.yml": {
+    "mtime": 1754242452.0,
+    "seen": 1789734137.1953976,
+    "ast_hash": "2de65291a23ca6f83631399cbc12fbd8",
+    "semantic_hash": "2de65291a23ca6f83631399cbc12fbd8"
+  },
+  "CLAUDE.md": {
+    "mtime": 1789734013.7161636,
+    "seen": 1789734137.1953983,
+    "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
+    "semantic_hash": "8a6643a420fdad6bfb583523bc6cef16"
+  }
+}
